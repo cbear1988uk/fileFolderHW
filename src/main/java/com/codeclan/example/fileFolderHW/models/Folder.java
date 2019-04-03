@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "folders")
 public class Folder {
 
-    @Column
+    @Column(name = "title")
     private String title;
 
     @Id

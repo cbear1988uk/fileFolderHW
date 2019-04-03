@@ -1,6 +1,7 @@
 package com.codeclan.example.fileFolderHW.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -13,15 +14,17 @@ public class File {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //    setting primary key
     private Long id;
+//    Long allows a very large set of integers, whereas int has a limit
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "ext")
     private String ext;
 
-    @Column
+    @Column(name = "size")
     private String size;
 
     @JsonIgnore
@@ -42,6 +45,7 @@ public class File {
     }
 
     public File(){}
+//    default constructor
 
     public void addFolder(Folder folder){
         this.folders.add(folder);
